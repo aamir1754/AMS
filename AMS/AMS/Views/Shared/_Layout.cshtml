@@ -1,42 +1,113 @@
-﻿<!DOCTYPE html>
+﻿@using AMS.DataTransferObjects.CookieHelpers;
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    <meta name="viewport" content="width=device-width" />
+    <title>PashtoForums </title>
+    <link href="~/Content/bootstrap-3.3.7.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome-4.7.0.min.css" rel="stylesheet" />
+    <link href="~/Content/sweetalert-1.0.1.min.css" rel="stylesheet" />
+    <link href="~/Content/sweetalert-1.0.1-2.min.css" rel="stylesheet" />
+    <link href="~/Content/AdminLTE.min.css" rel="stylesheet" />
+    <link href="~/Content/_all-skins.min.css" rel="stylesheet" />
+    <link href="~/Content/AMSStylesheet.css" rel="stylesheet" />
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/jquery.3.2.1.min.js"></script>
+    <script src="~/Scripts/bootstrap-3.3.7.min.js"></script>
+    <script src="~/Scripts/sweetalert.min.js"></script>
+
+    <script src="~/Scripts/adminlte.min.js"></script>
+    <script src="~/Scripts/jquery.toaster.js"></script>
+    <script src="~/Scripts/AMSScript.js"></script>
+    <script src="~/Scripts/jquery.blockUI.js"></script>
+</head>
+@{
+    CookieVM cookieData = CookieHelper.GetAllValues();
+}
+<body class="hold-transition skin-blue sidebar-mini">
+    @Html.Hidden("AdminCheck", cookieData.UserIsAdmin)
+    @Html.Hidden("CurrentUserIdHidden", cookieData.UserId)
+    @Html.Hidden("CurrentUserNameHidden", cookieData.UserName)
+    @Html.Hidden("CurrentUserImageHidden", cookieData.UserImage)
+    <div class="wrapper">
+        <header class="main-header">
+            <a href="#" class="logo">
+                <span class="logo-mini"><b>a</b>MS</span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>A</b>MS</span>
+            </a>
+            <nav class="navbar navbar-static-top">
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <li title="Notifications">
+                            <a href="#">
+                                <i class="fa fa-lightbulb-o" style="font-size:17px; margin-top:2px;"></i>
+                            </a>
+                        </li>
+                        <li class="dropdown messages-menu" title="Messages">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-envelope-o"></i>
+                            </a>
+                            @*<ul class="dropdown-menu">
+                                    <li class="header">
+                                        <input type="button" class="btn btn-success btn-sm MailButtonSpac" value="New Message" id="btnNewMessage" onclick="SketchFunnel.GetMailPopup()" />
+                                    </li>
+                                    <li>
+                                        <ul class="menu" id="menu"></ul>
+                                    </li>
+                                    <li class="footer" id="menuFooter">
+                                    </li>
+                                </ul>*@
+                        </li>
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img class="user-image" src="@Url.Content("~/ProfileImages/"+cookieData.UserImage)" />
+                                <span class="hidden-xs">
+                                    @cookieData.UserName
+                                </span>
+
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="user-header">
+
+
+                                    <img class="img-circle" src="@Url.Content("~/ProfileImages/"+cookieData.UserImage)" />
+                                    @{
+                                        var admin = cookieData.UserIsAdmin;
+                                        if (admin)
+                                        {
+                                            <p> Admin </p>
+                                        }
+                                        else
+                                        {
+                                            <p>Normal User Account </p>
+                                        }
+                                    }
+                                </li>
+
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#" data-id="@cookieData.UserId" class="ProfileClass btn btn-default btn-flat">Profile</a>
+
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="@Url.Action("Logout", "Account")" class="btn btn-default btn-flat">Sign out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        @RenderBody()
+    </div>
+    @Html.Partial("AMSModals")
+    <div id="LoaderDiv"></div>
 </body>
 </html>
+

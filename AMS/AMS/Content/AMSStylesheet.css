@@ -1,0 +1,466 @@
+﻿html, body {
+    height: 100% !important;
+}
+
+.wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 100% !important;
+}
+
+.content-wrapper {
+    overflow: auto;
+    height: 100% !important;
+}
+
+
+.MarginRight {
+    margin-right: 5px !important;
+}
+
+.dataTables_info, .hideItem, .e-header, #n-resize, #w-resize, #s-resize, #e-resize {
+    display: none !important;
+}
+
+.table {
+    margin-bottom: 10px !important;
+    border-bottom: 0px !important;
+}
+
+.dataTables_length {
+    font-size: 13px;
+}
+
+    .dataTables_length label {
+        font-weight: 100;
+    }
+
+        .dataTables_length label select {
+            margin-left: 5px;
+            border: 1px solid #d0c9c9;
+            padding: 2px;
+            /*border-radius: 5px;*/
+            margin-right: 5px;
+        }
+
+span a .paginate_button.current {
+    border-radius: 5px !important;
+    font-size: 13px !important;
+    background: white !important;
+    border: 1px solid #d2c5c5 !important;
+}
+
+.modal-header.bg-theme {
+    border-radius: 0 !important;
+    color: white;
+    background: rgb(60, 141, 188) !important;
+    text-align: center;
+}
+
+.btn.grey-mint.btn-outline {
+    border-color: #525e64;
+    color: #525e64;
+    background: 0 0;
+}
+
+    .btn.grey-mint.btn-outline:hover {
+        color: white;
+        background: #525e64;
+    }
+
+.modal-content {
+    border-radius: 6px !important;
+}
+/************Login Page Design*************************/
+.WhiteClass {
+    color: white
+}
+
+.no-padding {
+    background-image: url("../ProfileImages/LoginImage.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.panel-transparent {
+    background: none;
+}
+
+    .panel-transparent .panel-heading {
+        background: rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .panel-transparent .panel-body {
+        background: rgba(0, 0, 0, 0.2) !important;
+        height: 250px;
+    }
+
+.pnl-body-from-top {
+    margin-top: 80px;
+}
+
+@media only screen and (max-width: 500px) {
+    .NoMargin {
+        margin-top: 5px !important;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .ContentHeight {
+        height: 100% !important;
+    }
+}
+
+.errorClass {
+    border: 2px solid red;
+}
+/*---------------------------------------------*/
+
+.sweet-alert h2 {
+    font-size: 20px
+}
+
+.confirm.btn.btn-lg.btn-default.blue {
+    color: white;
+    background: #3c8dbc;
+}
+
+.sa-confirm-button-container {
+    float: left;
+    margin-left: 35%;
+}
+
+.cancel.btn.btn-lg.btn-danger {
+    margin-right: 37%;
+    float: right;
+}
+
+/*Loader CSS*/
+.blockUI {
+    position: absolute;
+    z-index: 99999;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    left: 0;
+    right: 0;
+}
+
+.arrow {
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    height: 80px;
+    width: 80px;
+    border: 10px solid #3c8dbc;
+    border-top: 10px solid transparent;
+    position: relative;
+}
+
+.spinner:last-child {
+    margin: 0;
+}
+
+.spinner {
+    border-radius: 50px;
+    -webkit-animation: spin 0.5s infinite linear;
+    -moz-animation: spin 0.5s infinite linear;
+    animation: spin 0.5s infinite linear;
+    margin-right: 10px;
+    display: inline-block;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.blockUI.blockMsg.blockPage {
+    z-index: 9999 !important;
+    background-color: transparent !important;
+    border: none !important;
+    left: 45% !important;
+}
+
+
+
+
+/*Chat CSS*/
+#chat_widnow {
+    width: 200px;
+    border: solid 1px #6c0e4a;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    overflow-x: hidden;
+    box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.7) !important;
+}
+
+#chat_title_bar {
+    background: #FEFEFE;
+    height: 25px;
+    width: 100%;
+    cursor:pointer;
+}
+
+#chat_min_button {
+    width: 25px;
+    height: 23px;
+    float: right;
+    cursor: pointer;
+}
+
+#chat_box {
+    height: 300px;
+    background: #DFDFDF;
+    display: none;
+    overflow-y: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+    /*Chat End*/
+
+.MyImageClass {
+    width: 23px;
+    margin-right: 3px;
+}
+
+.OnlineUsersClass
+{
+    margin:2px;
+    padding:2px;
+    cursor:pointer;
+}
+
+.ChatWindowsContainer {
+    border-radius: 3px;
+    position: absolute;
+    right: 200px;
+    bottom: 0;
+    border: 1px solid #dcc1c1;
+    /*height: 250px;*/
+    width: 200px;
+}
+
+.ChatHeader {
+    cursor:pointer;
+    border-bottom: 1px solid #dcc1c1;
+    font-weight: 600;
+    background: #3c8dbc;
+    padding: 2px;
+    color:white;
+    padding-left: 8px;
+ 
+}
+.SenderDiv {
+    color:white;
+    border-radius:5px;
+    display: block;
+    text-align: right;
+    float: right;
+    word-break: break-all;
+    background: #3c8dbc;
+    margin: 3px;
+    margin-bottom:0px;
+    padding: 3px;
+    padding-right:6px;
+    width:95%;
+}
+.ReceiverDiv {
+    color: #6d5959;
+    border-radius: 5px;
+    display: block;
+    text-align: left;
+    float: left;
+    word-break: break-all;
+    margin: 3px;
+    margin-bottom: 0px;
+    padding: 3px;
+    padding-left: 6px;
+    width: 95%;
+    background: #ecf0f5;
+}
+
+.ChatPanel {
+    height: 190px;
+    overflow: auto;
+    background: white;
+}
+
+.CloseStyle {
+    float: right;
+    padding-right: 3px;
+    padding-top: 3px;
+    color: #135f8c;
+}
+
+.singlePostContainer {
+    border-radius: 3px;
+    padding-top: 5px;
+    background: white;
+    /*margin-bottom:6px;*/
+}
+
+.PostTitleImage {
+    float: left;
+    margin-right: 10px;
+    width: 35px;
+    height:35px;
+    border-radius:50%;
+}
+
+.SinglePostNameSpan {
+    font-size: 16px;
+    color: #365899;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.DateSpan {
+    color: #90949c;
+    font-weight: 600;
+    font-size: 10px;
+}
+
+.PostTitleDiv
+{
+    word-break:break-word;
+    margin-top:5px;
+    margin-bottom:10px;
+}
+
+.SinglePostCommentHolder {
+    border: 1px solid #eae8e8;
+    background: #F6F7F9;
+    margin-bottom:15px;
+}
+.TypeHerDiv
+{
+    padding-left:0px;
+    /*float:right;
+    width:96%;*/
+}
+.TypingCommentDiv
+{
+    margin-top:6px;
+    margin-bottom:8px;
+}
+
+.commentbox
+{
+    border-radius:25px;
+    height:29px;
+}
+
+.commentholder
+{
+    margin-top:8px;
+}
+.CommentorNameDiv {
+    display: inline-block;
+    font-size: 12px;
+    color: #365899;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.PreviousCommentSpan
+{
+    display:initial;
+    margin-left:5px;
+    word-break:break-all;
+}
+
+.PreviousComment
+{
+    padding-left:0px;
+}
+
+.ExtraOptionsDate {
+    color: #90949c;
+    font-weight: 600;
+    font-size: 10px;
+    margin-top:6px;
+    text-align:right;
+}
+
+.EditDiv
+{
+    margin-right:5px;
+    cursor:pointer;
+}
+
+.EditDeleteDiv {
+    font-size: 10px;
+    color: #a0a0a0;
+}
+
+.DeleteDiv
+{
+    cursor:pointer;
+}
+
+.LeftPanelStyle {
+    background: white;
+    padding-top: 10px;
+    border-right: 1px solid #3c8dbc;
+}
+
+.RightPanelStyle
+{
+    background:white;
+    padding-top:10px;
+    overflow:hidden;
+}
+
+.WorkItemImageLabel
+{
+    width:100%;
+}
+
+
+
+.col-md-12.text-uppercase.text-bold.form-group {
+    color: #215573 !important;
+    font-size:18px;
+}
+
+.NewCommentTyperImage
+{
+    border-radius:50%;
+    width:32px;
+    height:32px;
+}
+
+.ProfileImageContainer {
+   width:100%;
+}

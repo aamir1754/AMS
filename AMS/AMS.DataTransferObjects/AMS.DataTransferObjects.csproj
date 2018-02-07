@@ -78,6 +78,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CookieHelpers\CookieHelper.cs" />
+    <Compile Include="CookieHelpers\CookieVM.cs" />
+    <Compile Include="Modules\UserDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <PropertyGroup>
