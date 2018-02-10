@@ -210,3 +210,40 @@ span a .paginate_button.current {
     border: none !important;
     left: 45% !important;
 }
+
+
+.skin-blue .main-header .navbar {
+    background-color: #3b515c;
+}
+.skin-blue .main-header .logo,.skin-blue .main-header .logo:hover
+,.skin-blue .main-header .navbar .sidebar-toggle:hover {
+    background-color: #203037;
+}
+.skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
+    background-color: #3b515c;
+}
+.skin-blue .sidebar-menu>li:hover>a{
+    background: #203037;
+}
+.skin-blue .sidebar-menu>li.active>a, .skin-blue .sidebar-menu>li.menu-open>a{
+background: #426a6c;
+}
+.user-panel>.image>img {
+    width: 100%;
+    max-width: 36px;
+    height: 36px;
+} 
+.user-panel{
+    padding-right:0 !important;
+}
+.skin-blue .sidebar-menu>li.active>a {
+    border-left-color: #203037;
+}
+.skin-blue .sidebar-menu>li.active>a:before {
+     content: "";
+    border-style: solid;
+    border-width: 8px 9px 8px 0;
+    border-color: transparent #ecf0f5 transparent transparent;
+    position: absolute;
+    right: 0;
+}

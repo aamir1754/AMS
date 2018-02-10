@@ -3,79 +3,7 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@{
-    string imagePath = string.Empty;
-    CookieVM cookieData = CookieHelper.GetAllValues();
-    if (cookieData.UserId != 0)
-    {
 
-        imagePath = cookieData.UserImage;
-
-        if (imagePath == "")
-        {
-            imagePath = "common.png";
-        }
-        else
-        {
-            imagePath = "common.png";
-        }
-        var CurrentUserID = cookieData.UserId;
-    }
-
-}
-<aside class="main-sidebar">
-    <section class="sidebar">
-        <div class="user-panel">
-            <div class="pull-left image">
-                <img class="img-circle" src="@Url.Content("~/Content/Images/ProfileImages/"+ imagePath)" />
-            </div>
-        </div>
-        <ul class="sidebar-menu" data-widget="tree">
-            <li>
-                <a onclick="" href="#">
-                    <i class="fa fa-home"></i> <span>Home</span>
-                </a>
-            </li>
-            <li>
-                <a onclick="AMS.Details();" href="#">
-                    <i class="fa fa-users"></i> <span>Details</span>
-                </a>
-            </li>
-            <li>
-                <a onclick="AMS.testNtags();" href="#">
-                    <i class="fa fa-th"></i> <span>test n tag</span>
-                </a>
-            </li>
-            <li>
-                <a onclick="SketchFunnel.SiteManagement();" href="#">
-                    <i class="fa fa-briefcase"></i> <span>Site Management</span>
-                </a>
-            </li>
-            <li>
-                <a onclick="SketchFunnel.WorkMethod();" href="#">
-                    <i class="fa fa-font-awesome"></i> <span>Work Method</span>
-                </a>
-            </li>
-
-            <li>
-                <a onclick="AMS.Search();" href="#">
-                    <i class="fa fa-th"></i> <span>Search</span>
-                </a>
-            </li>
-            <li>
-                <a onclick="SketchFunnel.Contact();" href="#">
-                    <i class="fa fa-briefcase"></i> <span>Contact</span>
-                </a>
-            </li>
-            <li>
-                <a onclick="SketchFunnel.Document();" href="#">
-                    <i class="fa fa-font-awesome"></i> <span>Document</span>
-                </a>
-            </li>
-
-        </ul>
-    </section>
-</aside>
 <div class="content-wrapper" style="height:100% !important">
     <div class="col-md-12">
         <div id="MainContent">
