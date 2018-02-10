@@ -211,7 +211,7 @@ span a .paginate_button.current {
     left: 45% !important;
 }
 
-
+/*Theme MEnu */
 .skin-blue .main-header .navbar {
     background-color: #3b515c;
 }
@@ -230,8 +230,8 @@ background: #426a6c;
 }
 .user-panel>.image>img {
     width: 100%;
-    max-width: 36px;
-    height: 36px;
+    max-width: 30px;
+    height: 30px;
 } 
 .user-panel{
     padding-right:0 !important;
@@ -247,3 +247,53 @@ background: #426a6c;
     position: absolute;
     right: 0;
 }
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    background-color: #eee;
+    border-color: #203037;
+}
+
+.skin-blue .main-header .navbar .nav>li>a:hover, .skin-blue .main-header .navbar .nav>li>a:active, .skin-blue .main-header .navbar .nav>li>a:focus, .skin-blue .main-header .navbar .nav .open>a, .skin-blue .main-header .navbar .nav .open>a:hover, .skin-blue .main-header .navbar .nav .open>a:focus, .skin-blue .main-header .navbar .nav>.active>a {
+    background: rgb(32, 48, 55);
+    color: #f6f6f6;
+}
+/*.main-header .navbar,.main-header .logo{
+        height:42px !important;
+}*/
+/*End*/
+
+/*Profile Settings*/
+li.dropdown.user.user-menu.open .dropdown-menu {
+       top: 50px;
+       box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) !important;
+        -webkit-box-shadow:0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) !important;
+        -moz-box-shadow:0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) !important;
+    border: 0 !important;
+    border-top: 0 !important;
+   
+    right: 0px;
+}
+.skin-blue .main-header li.user-header{
+     background-color:#426a6c !important;
+}
+li.dropdown.user.user-menu a.dropdown-toggle {
+    display: flex;
+    height:50px;
+    background-color: #426a6c !important;
+}
+.navbar-nav>.user-menu .user-image{
+    margin-right:0 !important;
+}
+/*End*/
+
+
+/*Button Styling*/
+.btn {
+    background-color: #15b0be !important;
+    color: white !important;
+        border-radius: 2px !important;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) !important;
+        -webkit-box-shadow:0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) !important;
+        -moz-box-shadow:0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) !important;
+    border: transparent;
+}
+/*End*/
