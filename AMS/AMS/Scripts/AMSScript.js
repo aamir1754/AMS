@@ -1,5 +1,4 @@
 ﻿var AMS = function () {
-
     var handleCloseModal = function (Modal) {
         $("#" + Modal).modal("hide");
     };
@@ -14,7 +13,6 @@
         $('body').css('padding-right', '0px');
         $("#" + ModalId).hide(150);
     };
-
     var handleLoginUser = function () {
         $("#EmailLogin").val($.trim($("#EmailLogin").val()));
         $("#PasswordLogin").val($.trim($("#PasswordLogin").val()));
@@ -52,7 +50,6 @@
             });
         }
     };
-
     var handleRegister = function () {
 
         $("#FirstName").val($.trim($("#FirstName").val()));
@@ -86,11 +83,9 @@
             });
         }
     };
-
     var handleOpenPostsPopup = function () {
         $("#PostsModal").modal("show");
     };
-
     var handleUpdateUserInfo = function ()
     {
         if ($('#PrsnlInfoFirstName').val() == "" || $('#PrsnlInfoLastName').val() == "" || $('#PrsnlInfoEmail').val() == "")
@@ -125,7 +120,6 @@
             });
         }
     };
-
     var handleUpdatePassword = function () {
         if ($('#CurrentPasswordBox').val() == "" || $('#NewPassswordBox').val() == "") {
             $.toaster({ priority: 'danger', message: 'Please fill all fields' });
@@ -152,8 +146,6 @@
             });
         }
     };
-
-
     return {
         EmailAddress: function (emailAddress) {
             handleEmailAddress(emailAddress);
