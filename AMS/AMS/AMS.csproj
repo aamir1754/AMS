@@ -154,6 +154,8 @@
     <Content Include="Content\bootstrap-3.3.7.min.css" />
     <Content Include="Content\font-awesome-4.7.0.min.css" />
     <Content Include="Content\AMSStylesheet.css" />
+    <Content Include="Content\ProfileImages\common.jpg" />
+    <Content Include="Content\ProfileImages\LoginImage.jpg" />
     <Content Include="Content\sweetalert-1.0.1-2.min.css" />
     <Content Include="Content\sweetalert-1.0.1.min.css" />
     <Content Include="Content\_all-skins.min.css" />
@@ -183,9 +185,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\fontawesome-webfont.ttf" />
@@ -193,6 +193,7 @@
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\AMSModals.cshtml" />
+    <Content Include="Views\Home\AdminPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AMS.DataTransferObjects\AMS.DataTransferObjects.csproj">
