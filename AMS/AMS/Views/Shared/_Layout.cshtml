@@ -29,12 +29,34 @@
     @Html.Hidden("CurrentUserIdHidden", cookieData.UserId)
     @Html.Hidden("CurrentUserNameHidden", cookieData.UserName)
     @Html.Hidden("CurrentUserImageHidden", cookieData.UserImage)
+
+
+    @{
+        string imagePath = string.Empty;
+       
+        if (cookieData.UserId != 0)
+        {
+
+            imagePath = cookieData.UserImage;
+
+            if (imagePath == "")
+            {
+                imagePath = "common.png";
+            }
+            else
+            {
+                imagePath = "common.png";
+            }
+            var CurrentUserID = cookieData.UserId;
+        }
+
+    }
     <div class="wrapper">
         <header class="main-header">
             <a href="#" class="logo">
-                <span class="logo-mini"><b>a</b>MS</span>
+                <span class="logo-mini"><b><span>A</span>M<span>S</span></b></span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>A</b>MS</span>
+                <span class="logo-lg"><span>A</span>M<span>S</span></b></span>
             </a>
             <nav class="navbar navbar-static-top">
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
@@ -42,11 +64,12 @@
                 </a>
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
-                        <li title="Notifications">
+                        @*<li title="Notifications">
                             <a href="#">
                                 <i class="fa fa-lightbulb-o" style="font-size:17px; margin-top:2px;"></i>
                             </a>
-                        </li>
+                        </li>*@
+                    
                         <li class="dropdown messages-menu" title="Messages">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-envelope-o"></i>
@@ -104,7 +127,96 @@
                 </div>
             </nav>
         </header>
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="~/Content/ProfileImages/LoginImage.jpg" class="img-circle" alt="User Image">
+                        @*<img class="img-circle" src="@Url.Content("~/Content/Images/ProfileImages/"+ imagePath)" />*@
+                    
+                    </div>
+                    <div class="pull-left info">
+                        <p>Khan</p>
+                        
+                    </div>
+                </div>
+
+
+               
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li class="active">
+                        <a onclick="AMS.handleGetPartialView(this)" data-Partial="_Home" href="#">
+                            <i class="fa fa-home"></i> <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a onclick="AMS.handleGetPartialView(this)" data-Partial="_Details" href="#">
+                            <i class="fa fa-users"></i> <span>Details</span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-edit"></i> <span>Test n Tags &amp; Parts</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a onclick="AMS.handleGetPartialView(this)" data-Partial="_TestnTag"><i class="fa fa-circle-o"></i> Add Test n Tags</a></li>
+                            <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Add Parts</a></li>
+                        </ul>
+                    </li>
+                 
+                    <li>
+                        <a onclick="AMS.handleGetPartialView(this)" data-Partial="_SiteManagement" href="#">
+                            <i class="fa fa-briefcase"></i> <span>Site Management</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a onclick="AMS.handleGetPartialView(this)" data-Partial="_WorkMethod" href="#">
+                            <i class="fa fa-font-awesome"></i> <span>Work Method</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a onclick="AMS.handleGetPartialView(this)" data-Partial="_User" href="#">
+                            <i class="fa fa-users"></i> <span>User</span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-edit"></i> <span>Forms</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
+                            <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
+                            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a onclick="AMS.Search();" href="#">
+                            <i class="fa fa-th"></i> <span>Search</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a onclick="SketchFunnel.Contact();" href="#">
+                            <i class="fa fa-briefcase"></i> <span>Contact</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a onclick="SketchFunnel.Document();" href="#">
+                            <i class="fa fa-font-awesome"></i> <span>Document</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </section>
+        </aside>
+
         @RenderBody()
+     
     </div>
     @Html.Partial("AMSModals")
     <div id="LoaderDiv"></div>

@@ -22,5 +22,10 @@ namespace AMS.Controllers
         {
             return View();
         }
+
+        public PartialViewResult GetPartial(string PartialViewName)
+        {
+            return PartialView(PartialViewName);
+        }
     }
 }
