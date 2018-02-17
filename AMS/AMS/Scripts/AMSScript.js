@@ -8,7 +8,7 @@
         return pattern.test(emailAddress);
     };
     var handleCloseModalManually = function (ModalId) {
-        $(".modal-backdrop").remove();
+        $(".modal-backdrop").remove(); 
         $('body').removeClass('modal-open');
         $('#txtProjectname').val('');
         $('body').css('padding-right', '0px');
