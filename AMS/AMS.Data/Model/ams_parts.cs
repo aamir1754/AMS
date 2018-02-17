@@ -12,25 +12,23 @@ namespace AMS.Data.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class ams_equipments
+    public partial class ams_parts
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ams_equipments()
+        public ams_parts()
         {
-            this.ams_parts = new HashSet<ams_parts>();
+            this.ams_sub_parts = new HashSet<ams_sub_parts>();
         }
     
-        public int equ_key { get; set; }
-        public Nullable<System.DateTime> equ_created_date { get; set; }
-        public Nullable<System.DateTime> equ_expiry_date { get; set; }
-        public Nullable<int> equ_user_key { get; set; }
-        public string equ_serial_number { get; set; }
-        public string equ_manufacturer { get; set; }
-        public string equ_type { get; set; }
-        public string equ_title { get; set; }
+        public int prt_key { get; set; }
+        public Nullable<int> prt_equ_key { get; set; }
+        public string prt_title { get; set; }
+        public Nullable<int> prt_added_by { get; set; }
+        public Nullable<System.DateTime> prt_created_date { get; set; }
     
+        public virtual ams_equipments ams_equipments { get; set; }
         public virtual ams_users ams_users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ams_parts> ams_parts { get; set; }
+        public virtual ICollection<ams_sub_parts> ams_sub_parts { get; set; }
     }
 }

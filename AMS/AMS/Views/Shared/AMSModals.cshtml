@@ -1,1 +1,32 @@
 ﻿
+<div id="OptionsModal" class="modal fade in" data-keyboard="false" data-backdrop="static" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header bg-theme">
+                <h4 class="modal-title" id="ModalTitle"></h4>
+            </div>
+            <div class="modal-body ModalBody">
+                <div class="form-group col-md-12">
+                    <div class="col-md-3">
+                       Option Name
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" maxlength="250" class="form-control" id="Optiontxtbx" />
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-info" onclick="AMS.AddNewOption($('#PartIdHidden').val())" >Add</button>
+                    </div>
+                    <input type="hidden" id="PartIdHidden" />
+                </div>
+                <div id="MainDiv">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-12">
+                    <button type="button" onclick="AMS.CloseModal('OptionsModal')" class="btn grey-mint btn-outline">Close </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

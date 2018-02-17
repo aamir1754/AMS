@@ -72,11 +72,42 @@ namespace AMS.Data
                 return this._ctx;
             }
         }
+
         public UserAction UsersActions
         {
             get
             {
                 UserAction Ans = new UserAction();
+                Ans.SetContainer(this);
+                return Ans;
+            }
+        }
+
+        public TagAction TagActions
+        {
+            get
+            {
+                TagAction Ans = new TagAction();
+                Ans.SetContainer(this);
+                return Ans;
+            }
+        }
+
+        public PartAction PartActions
+        {
+            get
+            {
+                PartAction Ans = new PartAction();
+                Ans.SetContainer(this);
+                return Ans;
+            }
+        }
+
+        public OptionsAction OptionsActions
+        {
+            get
+            {
+                OptionsAction Ans = new OptionsAction();
                 Ans.SetContainer(this);
                 return Ans;
             }

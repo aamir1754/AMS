@@ -6,47 +6,32 @@
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Test n Tags</a></li>
-
     </ol>
 </section>
 <section class="content">
-
-    <!-- Default box -->
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">Horizontal Form</h3>
+            <h3 class="box-title">Add New</h3>
         </div>
-        <!-- /.box-header -->
-        <!-- form start -->
-        <form class="form-horizontal">
-            <div class="box-body ">
-                <div class="col-md-6 ams-element-centered">
-                    <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-4 control-label">Test n Tags Name:</label>
+        <div class="box-body ">
+            <div class="col-md-6 ams-element-centered">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 control-label">Test n Tags Name:</label>
 
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="textntagName" placeholder="Email">
-                        </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" maxlength="50" id="textntagName" placeholder="Title">
                     </div>
-
                 </div>
-               
             </div>
-            <!-- /.box-body -->
+        </div>
 
-            <div class="box-footer">
-                <div class="col-md-6 ams-element-centered">
-                    <button type="submit" class="btn btn-info pull-right">Save</button>
-                    <button type="submit" class="btn btn-default pull-right ams-cancel-btn">Cancel</button>
-                </div>
-                
+        <div class="box-footer">
+            <div class="col-md-6 ams-element-centered">
+                <button onclick="AMS.AddNewTag()" class="btn btn-info pull-right AddTagsBtn">Save</button>
             </div>
-            <!-- /.box-footer -->
-        </form>
+        </div>
     </div>
-    <!-- /.box -->
 
-    <!-- Default box -->
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">Test n Tags List</h3>
@@ -58,54 +43,13 @@
 
             </div>
         </div>
-        <!-- /.box-header -->
-        <div class="box-body table-responsive no-padding">
-            <table class="table table-hover">
-                <tbody>
-                    <tr>
-                        <th>ID</th>
-                        <th>User</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Reason</th>
-                    </tr>
-                    <tr>
-                        <td>183</td>
-                        <td>John Doe</td>
-                        <td>11-7-2014</td>
-                        <td><span class="label label-success">Approved</span></td>
-                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                        <td>219</td>
-                        <td>Alexander Pierce</td>
-                        <td>11-7-2014</td>
-                        <td><span class="label label-warning">Pending</span></td>
-                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                        <td>657</td>
-                        <td>Bob Doe</td>
-                        <td>11-7-2014</td>
-                        <td><span class="label label-primary">Approved</span></td>
-                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                        <td>175</td>
-                        <td>Mike Doe</td>
-                        <td>11-7-2014</td>
-                        <td><span class="label label-danger">Denied</span></td>
-                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div id="TagsContainer" class="box-body table-responsive no-padding">
         </div>
-        <!-- /.box-body -->
-        <!-- /.box-body -->
-
     </div>
-    <!-- /.box -->
-
-
 </section>
 
+<script>
+    $(document).ready(function () {
+        AMS.GetTags();
+    });
+</script>

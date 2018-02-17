@@ -46,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -166,6 +172,11 @@
     </Content>
     <Content Include="Scripts\adminlte.min.js" />
     <Content Include="Scripts\bootstrap-3.3.7.min.js" />
+    <Content Include="Scripts\datatable\jquery.dataTables.min.css" />
+    <Content Include="Scripts\datatable\jquery.dataTables.min.js" />
+    <Content Include="Scripts\images\sort_asc.png" />
+    <Content Include="Scripts\images\sort_both.png" />
+    <Content Include="Scripts\images\sort_desc.png" />
     <Content Include="Scripts\jquery.3.2.1.min.js" />
     <Content Include="Scripts\jquery.blockUI.js" />
     <Content Include="Scripts\jquery.toaster.js" />
@@ -182,7 +193,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -195,7 +205,6 @@
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\AMSModals.cshtml" />
-    <Content Include="Views\Home\AdminPanel.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_User.cshtml" />
     <Content Include="Views\Home\_Home.cshtml" />
@@ -205,11 +214,19 @@
     <Content Include="Views\Home\_WorkMethod.cshtml" />
     <Content Include="Views\Home\_Contact.cshtml" />
     <Content Include="Views\Home\_Document.cshtml" />
+    <Content Include="Views\Home\_GetTags.cshtml" />
+    <Content Include="Views\Home\_Parts.cshtml" />
+    <Content Include="Views\Home\_GetPartsList.cshtml" />
+    <Content Include="Views\Home\_GetOptions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AMS.DataTransferObjects\AMS.DataTransferObjects.csproj">
       <Project>{F4E373F3-F11A-49E2-9B9C-13585DD92BFF}</Project>
       <Name>AMS.DataTransferObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AMS.Data\AMS.Data.csproj">
+      <Project>{9057505E-DC4B-4A75-9CB4-ADC5CD391FCD}</Project>
+      <Name>AMS.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

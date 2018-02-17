@@ -1,0 +1,78 @@
+﻿
+
+<section class="content-header">
+    <h1>
+        Parts
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Add Equipment Parts</a></li>
+    </ol>
+</section>
+<section class="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Select Equipment</h3>
+        </div>
+        <div class="box-body ">
+            <div class="col-md-6 ams-element-centered">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-3 control-label">Select Tag</label>
+                    <div class="col-sm-6">
+                        @Html.DropDownList("TagId", (IEnumerable<SelectListItem>)ViewBag.Tags, null, new { @class = "form-control", @id="TagsDropdown" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="PartsSectionContainer" style="display:none;">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Add Part</h3>
+            </div>
+            <div class="box-body">
+                <div class="col-md-6 ams-element-centered">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">Part Name:</label>
+                        <div class="col-sm-6">
+                            <input type="text" maxlength="255" class="form-control" id="txtPartName" placeholder="Title">
+                            <input type="hidden" id="TagsIdHidden" />
+                        </div>
+                        <div class="col-sm-2">
+                            <button onclick="AMS.AddNewPart($('#TagsIdHidden').val())" class="btn btn-info pull-right AddTagsBtn">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Parts List</h3>
+
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+
+                </div>
+            </div>
+            <div id="PartsContainer" class="box-body table-responsive no-padding">
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $('body').on('change', '#TagsDropdown', function () {
+
+        if ($(this).val() != 0) {
+            $("#TagsIdHidden").val($(this).val());
+            $(".PartsSectionContainer").show();
+            AMS.GetTagParts($(this).val());
+        }
+        else {
+            $(".PartsSectionContainer").hide();
+        }
+    })
+
+</script>

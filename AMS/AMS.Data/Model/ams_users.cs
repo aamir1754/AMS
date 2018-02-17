@@ -17,7 +17,10 @@ namespace AMS.Data.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ams_users()
         {
+            this.ams_documents = new HashSet<ams_documents>();
             this.ams_equipments = new HashSet<ams_equipments>();
+            this.ams_items = new HashSet<ams_items>();
+            this.ams_parts = new HashSet<ams_parts>();
             this.ams_websites = new HashSet<ams_websites>();
         }
     
@@ -29,7 +32,13 @@ namespace AMS.Data.Model
         public Nullable<System.DateTime> user_created_date { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ams_documents> ams_documents { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ams_equipments> ams_equipments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ams_items> ams_items { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ams_parts> ams_parts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ams_websites> ams_websites { get; set; }
     }

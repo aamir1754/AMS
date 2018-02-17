@@ -1,158 +1,13 @@
-﻿
+﻿var AMS = function () {
 
-var AMS = function () {
-
-    var handleCloseModal = function (Modal) {
-        $("#" + Modal).modal("hide");
-    };
     var handleEmailAddress = function (emailAddress) {
         var pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return pattern.test(emailAddress);
     };
-    var handleCloseModalManually = function (ModalId) {
-        $(".modal-backdrop").remove(); 
-        $('body').removeClass('modal-open');
-        $('#txtProjectname').val('');
-        $('body').css('padding-right', '0px');
-        $("#" + ModalId).hide(150);
-    };
-    var handleLoginUser = function () {
-        $("#EmailLogin").val($.trim($("#EmailLogin").val()));
-        $("#PasswordLogin").val($.trim($("#PasswordLogin").val()));
-        if ($('#EmailLogin').val() == "" || $('#PasswordLogin').val() == "") {
-            $.toaster({ priority: 'danger', message: 'Please fill both fields' });
-        }
-        else if (!handleEmailAddress($("#EmailLogin").val())) {
-            $.toaster({ priority: 'error', message: 'Invalid email address' });
-        }
-        else {
 
-            $.ajax({
-                type: "post",
-                url: "/Account/Login",
-                data: { UserName: $('#EmailLogin').val(), Password: $('#PasswordLogin').val() },
-                success: function (data) {
-                    if (data.success) {
-                        window.location.href = data.URL;
-                    }
-                    else {
-                        if (data.status == "Inactive")
-                        {
-                            $.toaster({ priority: 'danger', message: "Your account has been disabled" });
-                        } 
-                        if (data.status == "WrongPassword") {
-                            $.toaster({ priority: 'danger', message: "Wrong password" });
-                        }
-                        if (data.status == "NotFound") {
-                            $.toaster({ priority: 'danger', message: "account does not exist" });
-                        }
-                    }
-                },
-                error: function (data) {
-                }
-            });
-        }
-    };
-    var handleRegister = function () {
-
-        $("#FirstName").val($.trim($("#FirstName").val()));
-        $("#LastName").val($.trim($("#LastName").val()));
-        $("#EmailLogin").val($.trim($("#EmailLogin").val()));
-        $("#PasswordLogin").val($.trim($("#PasswordLogin").val()));
-        if ($('#FirstName').val() == "" || $('#LastName').val() == "" || $('#EmailLogin').val() == "" || $('#PasswordLogin').val() == "") {
-            $.toaster({ priority: 'danger', message: 'Please fill all fields' });
-        }
-        else if (!handleEmailAddress($("#EmailLogin").val())) {
-            $.toaster({ priority: 'error', message: 'Invalid email address' });
-        }
-        else {
-
-            $.ajax({
-                type: "post",
-                url: "/Account/Register",
-                data: { FirstName: $('#FirstName').val(), LastName: $('#LastName').val(), UserName: $('#EmailLogin').val(), Password: $('#PasswordLogin').val() },
-                success: function (data) {
-                    if (data.success) {
-                        $.toaster({ priority: 'success', message: 'account created successfully' });
-                        setTimeout(function () { window.location.href = "/Home/Home"; }, 3000);
-                      
-                    }
-                    else {
-                        $.toaster({ priority: 'danger', message: data.message });
-                    }
-                },
-                error: function (data) {
-                }
-            });
-        }
-    };
-    var handleOpenPostsPopup = function () {
-        $("#PostsModal").modal("show");
-    };
-    var handleUpdateUserInfo = function ()
-    {
-        if ($('#PrsnlInfoFirstName').val() == "" || $('#PrsnlInfoLastName').val() == "" || $('#PrsnlInfoEmail').val() == "")
-        {
-            $.toaster({ priority: 'danger', message: 'Please fill all fields' });
-        }
-        else if (!handleEmailAddress($("#PrsnlInfoEmail").val()))
-        {
-            $.toaster({ priority: 'error', message: 'Invalid email address' });
-        }
-        else
-        {
-            $.ajax({
-                type: "post",
-                url: "/Home/UpdateUserInfo",
-                data: { FirstName: $('#PrsnlInfoFirstName').val(), LastName: $('#PrsnlInfoLastName').val(), Email: $('#PrsnlInfoEmail').val(), UserId: $("#CurrentUserIdHidden").val() },
-                success: function (data) {
-                    if (data.success) {
-                        $.toaster({ priority: 'success', message: 'profile info updated successfully, page will be refreshed to load new changes' });
-                        setTimeout(function () {
-                            location.reload(true);
-                        }, 3000);
-                    }
-                    else
-                    {
-                        $.toaster({ priority: 'error', message: data.message });
-                    }
-
-                },
-                error: function (data) {
-                }
-            });
-        }
-    };
-    var handleUpdatePassword = function () {
-        if ($('#CurrentPasswordBox').val() == "" || $('#NewPassswordBox').val() == "") {
-            $.toaster({ priority: 'danger', message: 'Please fill all fields' });
-        }
-        else if ($('#CurrentPasswordBox').val() ==  $('#NewPassswordBox').val()) {
-            $.toaster({ priority: 'danger', message: 'new password can not be same as current' });
-        }
-        else {
-            $.ajax({
-                type: "post",
-                url: "/Home/UpdatePassword",
-                data: { OldPassword: $('#CurrentPasswordBox').val(), NewPassword: $('#NewPassswordBox').val(), UserId: $("#CurrentUserIdHidden").val() },
-                success: function (data) {
-                    if (data.success) {
-                        $.toaster({ priority: 'success', message: 'password changed successfully, you will be asked for new password on next login' });
-                    }
-                    else {
-                        $.toaster({ priority: 'error', message: data.message });
-                    }
-
-                },
-                error: function (data) {
-                }
-            });
-        }
-    };
     var handleGetPartialView = function (PartialViewName) {
        
         $.get('/Home/GetPartial', { PartialViewName: PartialViewName }, function (data) {
-            debugger;
             $('#MainContent').empty();
             $('#MainContent').html(data);
         });
@@ -160,12 +15,6 @@ var AMS = function () {
     return {
         EmailAddress: function (emailAddress) {
             handleEmailAddress(emailAddress);
-        },
-        CloseModal: function (Modal) {
-            handleCloseModal(Modal);
-        },
-        DeleteWorkItem: function (WID) {
-            handleDeleteWorkItem(WID);
         },
         IsDeleteConfirm: function (title) {
             swal({
@@ -206,51 +55,179 @@ var AMS = function () {
             };
             return options;
         },
-        CloseModalManually: function (ModalId) {
-            handleCloseModalManually(ModalId);
-        },
-        LoginUser: function ()
-        {
-            handleLoginUser();
-        },
-        Register: function ()
-        {
-            handleRegister();
-        },
-        OpenPostsPopup: function ()
-        {
-            handleOpenPostsPopup();
-        },
-        UpdateUserInfo: function()
-        {
-            handleUpdateUserInfo();
-        },
-        UpdatePassword: function ()
-        {
-            handleUpdatePassword();
-        },
+
         handleGetPartialView: function ($that) {
             var $thatElment = $($that);
             var $Parent = $thatElment.parents('ul.sidebar-menu.tree');
-
-            //remove Active
             $Parent.find('li.active').removeClass('active');
-
-            //add active Class to Element Requested Url
             $thatElment.parent().addClass('active');
             
             var RenderPartialView = $thatElment.attr('data-Partial');
             handleGetPartialView(RenderPartialView);
-        }
+        },
+        AddNewTag: function () {
+            if ($("#textntagName").val() == "") {
+                $.toaster({ priority: 'error', message: 'please enter tag title' });
+            }
+            else {
+                $.post('/Home/AddTag', { Title: $("#textntagName").val()  }, function (data) {
+                    if (data.success) {
+                        $("#textntagName").val('');
+                        AMS.GetTags();
+                        $.toaster({ priority: 'success', message: data.message });
+                    }
+                    else {
+                        $.toaster({ priority: 'error', message: data.message });
+                    }
+                });
+            }
+        },
+
+        InitializeDataTable: function (Table) {
+            var UsersTable = $("#" + Table).dataTable({
+                "autoWidth": false,
+                destroy: true,
+                paging: true,
+                sort: true,
+                searching: true,
+                "sDom": '<"row view-filter"<"col-sm-12"<"pull-right"><"">>>t<"row view-pager"<"col-sm-12"<"pull-right"ip><"pull-left"l>>>',
+                "orderCellsTop": true,
+
+            });
+
+            $('#' + Table + ' tbody').on('mouseenter', 'td', function () {
+                if ($(this).find(".fa-trash-o").length <= 0) {
+                    this.setAttribute('title', $(this).text());
+                }
+            });
+        },
+
+        UpdateTag: function ($this) {
+        },
+        DeleteTag: function (TagId) {
+            var options = AMS.SetSweetAlertOptions("Are you sure, you want to delete this tag?");
+            swal(options, function (isConfirm) {
+                if (isConfirm) {
+                    $.post('/Home/DeleteTag/', { TagId: TagId }, function (data) {
+                        if (data.success) {
+                            AMS.GetTags();
+                            $.toaster({ priority: 'success', message: 'Tag deleted successfully' });
+                        }
+                        else {
+                            $.toaster({ priority: 'error', message: data.message });
+                        }
+                    });
+                }
+            });
+        },
+
+        GetTags: function () {
+            $.get('/Home/_GetTags', function (data) {
+                $("#TagsContainer").html(data);
+            });
+        },
+
+        GetPartsPartial: function () {
+            $.get('/Home/GetPartsPartial', function (data) {
+                $("#MainContent").html(data);
+            });
+        },
+        GetTagParts: function (TagId) {
+            $.get('/Home/GetTagParts', { TagId: TagId}, function (data) {
+                $("#PartsContainer").html(data);
+            });
+        },
+        AddNewPart: function (TagId) {
+            if ($("#txtPartName").val() == "") {
+                $.toaster({ priority: 'error', message: 'please enter tag title' });
+            }
+            else {
+                $.post('/Home/AddNewPart', { Title: $("#txtPartName").val(), TagId: TagId }, function (data) {
+                    if (data.success) {
+                        $("#txtPartName").val('');
+                        AMS.GetTagParts(TagId);
+                        $.toaster({ priority: 'success', message: data.message });
+                    }
+                    else {
+                        $.toaster({ priority: 'error', message: data.message });
+                    }
+                });
+            }
+        },
+        UpdatePart: function ($this) {
+        },
+        DeletePart: function (PartId) {
+            var options = AMS.SetSweetAlertOptions("Are you sure, you want to delete this part?");
+            swal(options, function (isConfirm) {
+                if (isConfirm) {
+                    $.post('/Home/DeletePart/', { PartId: PartId }, function (data) {
+                        if (data.success) {
+                            AMS.GetTagParts($('#TagsIdHidden').val());
+                            $.toaster({ priority: 'success', message: 'Part deleted successfully' });
+                        }
+                        else {
+                            $.toaster({ priority: 'error', message: data.message });
+                        }
+                    });
+                }
+            });
+        },
+        GetOptions: function (PartId, PartName) {
+            $("#PartIdHidden").val(PartId);
+            $("#ModalTitle").text(PartName);
+            $("#OptionsModal").modal("show");
+            AMS.GetOptionsList(PartId);
+           
+        },
+
+        AddNewOption: function (PartId) {
+            if ($("#Optiontxtbx").val() == "") {
+                $.toaster({ priority: 'error', message: 'please enter option title' });
+            }
+            else {
+                $.post('/Home/AddNewOption', { Title: $("#Optiontxtbx").val(), PartId: PartId }, function (data) {
+                    if (data.success) {
+                        $("#Optiontxtbx").val('');
+                        AMS.GetOptionsList(PartId);
+                        $.toaster({ priority: 'success', message: data.message });
+                    }
+                    else {
+                        $.toaster({ priority: 'error', message: data.message });
+                    }
+                });
+            }
+        },
+
+        GetOptionsList: function (PartId) {
+            $.get('/Home/_GetOptions', { PartId: PartId }, function (data) {
+                $("#MainDiv").html(data);
+            });
+        },
+
+        DeleteOption: function (OptionId) {
+            var options = AMS.SetSweetAlertOptions("Are you sure, you want to delete this option?");
+            swal(options, function (isConfirm) {
+                if (isConfirm) {
+                    $.post('/Home/DeleteOption/', { OptionId: OptionId }, function (data) {
+                        if (data.success) {
+                            AMS.GetOptionsList($('#PartIdHidden').val());
+                            $.toaster({ priority: 'success', message: 'Option deleted successfully' });
+                        }
+                        else {
+                            $.toaster({ priority: 'error', message: data.message });
+                        }
+                    });
+                }
+            });
+        },
+        CloseModal: function(ModalId) {
+            $("#" + ModalId).modal("hide");
+        },
     };
 }();
 
 $(document).ready(function () {
     $(document).ajaxStart(showLoadingScreen(true)).ajaxStop(showLoadingScreen(false));
-    $('#summernote').summernote(
-        {
-            height: 200,  
-        });
 });
 
 
@@ -262,4 +239,3 @@ $(document).ajaxStart(function () {
 }).ajaxStop(function () {
     showLoadingScreen(false);
 });
-

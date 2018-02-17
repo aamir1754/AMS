@@ -26,7 +26,6 @@ namespace AMS.Data.Actions
         public abstract IQueryable<Entity> GetAll();
         public abstract Entity Get(int id);
 
-        public abstract Entity GetAsp(string id);
         public abstract void Delete(int id);
         public abstract void Change(Entity t);
         public abstract void Add(Entity t);

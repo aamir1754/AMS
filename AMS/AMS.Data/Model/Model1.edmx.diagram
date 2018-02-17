@@ -5,11 +5,20 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="9a6099152fa74da68f5bd9180c827f6e" Name="Diagram1">
-        <EntityTypeShape EntityType="AMSModel.ams_equipments" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AMSModel.ams_users" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AMSModel.ams_websites" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
-        <AssociationConnector Association="AMSModel.FK_ams_equipments_ams_users" ManuallyRouted="false" />
-        <AssociationConnector Association="AMSModel.FK_ams_websites_ams_users" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AMSModel.ams_documents" Width="1.5" PointX="3" PointY="11.5" />
+        <EntityTypeShape EntityType="AMSModel.ams_equipments" Width="1.5" PointX="3" PointY="5" />
+        <EntityTypeShape EntityType="AMSModel.ams_items" Width="1.5" PointX="3" PointY="1.5" />
+        <EntityTypeShape EntityType="AMSModel.ams_parts" Width="1.5" PointX="5.25" PointY="5.75" />
+        <EntityTypeShape EntityType="AMSModel.ams_sub_parts" Width="1.5" PointX="7.5" PointY="6.125" />
+        <EntityTypeShape EntityType="AMSModel.ams_users" Width="1.5" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="AMSModel.ams_websites" Width="1.5" PointX="3" PointY="8.625" />
+        <AssociationConnector Association="AMSModel.FK_ams_documents_ams_users" />
+        <AssociationConnector Association="AMSModel.FK_ams_equipments_ams_users" />
+        <AssociationConnector Association="AMSModel.FK_ams_parts_ams_equipments" />
+        <AssociationConnector Association="AMSModel.FK_ams_items_ams_users" />
+        <AssociationConnector Association="AMSModel.FK_ams_parts_ams_users" />
+        <AssociationConnector Association="AMSModel.FK_ams_sub_parts_ams_parts" />
+        <AssociationConnector Association="AMSModel.FK_ams_websites_ams_users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

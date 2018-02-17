@@ -25,7 +25,11 @@ namespace AMS.Data.Model
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<ams_documents> ams_documents { get; set; }
         public virtual DbSet<ams_equipments> ams_equipments { get; set; }
+        public virtual DbSet<ams_items> ams_items { get; set; }
+        public virtual DbSet<ams_parts> ams_parts { get; set; }
+        public virtual DbSet<ams_sub_parts> ams_sub_parts { get; set; }
         public virtual DbSet<ams_users> ams_users { get; set; }
         public virtual DbSet<ams_websites> ams_websites { get; set; }
     }
