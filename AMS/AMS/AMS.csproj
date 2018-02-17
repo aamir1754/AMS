@@ -218,6 +218,8 @@
     <Content Include="Views\Home\_Parts.cshtml" />
     <Content Include="Views\Home\_GetPartsList.cshtml" />
     <Content Include="Views\Home\_GetOptions.cshtml" />
+    <Content Include="Views\Home\_Login.cshtml" />
+    <Content Include="Views\Home\_Registration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AMS.DataTransferObjects\AMS.DataTransferObjects.csproj">
