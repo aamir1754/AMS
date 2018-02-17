@@ -144,29 +144,42 @@
 
                
                 <ul class="sidebar-menu" data-widget="tree">
-                    <li>
-                        <a onclick="" href="#">
+                    <li class="active">
+                        <a onclick="AMS.handleGetPartialView(this)" data-Partial="_Home" href="#">
                             <i class="fa fa-home"></i> <span>Home</span>
                         </a>
                     </li>
                     <li>
-                        <a onclick="AMS.Details();" href="#">
+                        <a onclick="AMS.handleGetPartialView(this)" data-Partial="_Details" href="#">
                             <i class="fa fa-users"></i> <span>Details</span>
                         </a>
                     </li>
-                    <li>
-                        <a onclick="AMS.testNtags();" href="#">
-                            <i class="fa fa-th"></i> <span>test n tag</span>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-edit"></i> <span>Test n Tags &amp; Parts</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
                         </a>
+                        <ul class="treeview-menu">
+                            <li><a onclick="AMS.handleGetPartialView(this)" data-Partial="_TestnTag"><i class="fa fa-circle-o"></i> Add Test n Tags</a></li>
+                            <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Add Parts</a></li>
+                        </ul>
                     </li>
+                 
                     <li>
-                        <a onclick="SketchFunnel.SiteManagement();" href="#">
+                        <a onclick="AMS.handleGetPartialView(this)" data-Partial="_SiteManagement" href="#">
                             <i class="fa fa-briefcase"></i> <span>Site Management</span>
                         </a>
                     </li>
                     <li>
-                        <a onclick="SketchFunnel.WorkMethod();" href="#">
+                        <a onclick="AMS.handleGetPartialView(this)" data-Partial="_WorkMethod" href="#">
                             <i class="fa fa-font-awesome"></i> <span>Work Method</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a onclick="AMS.handleGetPartialView(this)" data-Partial="_User" href="#">
+                            <i class="fa fa-users"></i> <span>User</span>
                         </a>
                     </li>
                     <li class="treeview">
@@ -201,7 +214,9 @@
                 </ul>
             </section>
         </aside>
+
         @RenderBody()
+     
     </div>
     @Html.Partial("AMSModals")
     <div id="LoaderDiv"></div>

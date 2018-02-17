@@ -1,4 +1,7 @@
-﻿var AMS = function () {
+﻿
+
+var AMS = function () {
+
     var handleCloseModal = function (Modal) {
         $("#" + Modal).modal("hide");
     };
@@ -146,6 +149,14 @@
             });
         }
     };
+    var handleGetPartialView = function (PartialViewName) {
+       
+        $.get('/Home/GetPartial', { PartialViewName: PartialViewName }, function (data) {
+            debugger;
+            $('#MainContent').empty();
+            $('#MainContent').html(data);
+        });
+    }
     return {
         EmailAddress: function (emailAddress) {
             handleEmailAddress(emailAddress);
@@ -218,6 +229,19 @@
         {
             handleUpdatePassword();
         },
+        handleGetPartialView: function ($that) {
+            var $thatElment = $($that);
+            var $Parent = $thatElment.parents('ul.sidebar-menu.tree');
+
+            //remove Active
+            $Parent.find('li.active').removeClass('active');
+
+            //add active Class to Element Requested Url
+            $thatElment.parent().addClass('active');
+            
+            var RenderPartialView = $thatElment.attr('data-Partial');
+            handleGetPartialView(RenderPartialView);
+        }
     };
 }();
 

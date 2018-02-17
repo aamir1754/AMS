@@ -171,7 +171,9 @@
     <Content Include="Scripts\jquery.toaster.js" />
     <Content Include="Scripts\AMSScript.js" />
     <Content Include="Scripts\sweetalert.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -194,6 +196,15 @@
     <None Include="packages.config" />
     <Content Include="Views\Shared\AMSModals.cshtml" />
     <Content Include="Views\Home\AdminPanel.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\_User.cshtml" />
+    <Content Include="Views\Home\_Home.cshtml" />
+    <Content Include="Views\Home\_TestnTag.cshtml" />
+    <Content Include="Views\Home\_Details.cshtml" />
+    <Content Include="Views\Home\_SiteManagement.cshtml" />
+    <Content Include="Views\Home\_WorkMethod.cshtml" />
+    <Content Include="Views\Home\_Contact.cshtml" />
+    <Content Include="Views\Home\_Document.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AMS.DataTransferObjects\AMS.DataTransferObjects.csproj">
