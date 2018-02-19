@@ -81,7 +81,7 @@ span a .paginate_button.current {
 }
 
 .no-padding {
-    background-image: url("../ProfileImages/LoginImage.jpg");
+    background-image: url("../Content/ProfileImages/LoginImage.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

@@ -197,6 +197,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Documents\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +221,7 @@
     <Content Include="Views\Home\_GetOptions.cshtml" />
     <Content Include="Views\Home\_Login.cshtml" />
     <Content Include="Views\Home\_Registration.cshtml" />
+    <Content Include="Views\Home\_GetDocuments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AMS.DataTransferObjects\AMS.DataTransferObjects.csproj">

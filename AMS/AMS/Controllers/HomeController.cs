@@ -188,5 +188,26 @@ namespace AMS.Controllers
             return PartialView(DataAccess.Instance.OptionsActions.GetPartsList(PartId));
         }
 
+        public PartialViewResult _GetDocuments()
+        {
+            return PartialView();
+        }
+
+        [HttpPost]
+        public ActionResult AddDocument(HttpPostedFileBase txtDocumentName)
+        {
+            try
+            {
+                string FileName = System.IO.Path.GetFileNameWithoutExtension(txtDocumentName.FileName);
+                int UserId = CookieHelper.GetUserId();
+                string FilePath = Server.MapPath("~/Content/Documents/" + txtDocumentName.FileName);
+                txtDocumentName.SaveAs(FilePath);
+                return Json(new { success = true }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ee)
+            {
+                return Json(new { success = false, message = ee }, JsonRequestBehavior.AllowGet);
+            }
+        }
     }
 }

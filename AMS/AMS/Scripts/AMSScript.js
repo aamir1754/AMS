@@ -223,6 +223,16 @@
         CloseModal: function(ModalId) {
             $("#" + ModalId).modal("hide");
         },
+        GetDocuments: function () {
+            $.get('/Home/_GetDocuments', function (data) {
+                $("#MainContent").html(data);
+            });
+        },
+        TriggerDocument: function () {
+            $("#txtDocumentName").trigger("click");
+        },
+        GetDocumentsList: function () {
+        }
     };
 }();
 
@@ -238,4 +248,30 @@ $(document).ajaxStart(function () {
     showLoadingScreen(true);
 }).ajaxStop(function () {
     showLoadingScreen(false);
+    });
+
+
+$(document).on('change', '#txtDocumentName', function () {
+    if ($("#txtDocumentName input.file").val() == "") {
+        return;
+    }
+    if ($('#txtDocumentName')[0].files[0] != undefined) {
+        var formdata = new FormData($('#DocumentForm').get(0));
+        $.ajax({
+            url: "/Home/AddDocument",
+            type: 'POST',
+            data: formdata,
+            success: function (data) {
+                if (data.success) {
+                    AMS.GetDocumentsList();
+                    $.toaster({ priority: 'success', message: "Dcoument added successfully" });
+                }
+                else {
+                    $.toaster({ priority: 'error', message: data.ee });
+                }
+            },
+            processData: false,
+            contentType: false,
+        });
+    }
 });

@@ -1,0 +1,52 @@
+﻿
+
+<section class="content-header">
+    <h1>
+        Documents
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Add Documents</a></li>
+    </ol>
+</section>
+<section class="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Add Document</h3>
+        </div>
+        <div class="box-body">
+            <div class="col-md-6 ams-element-centered">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 control-label">Select Document</label>
+                    <div class="col-sm-6">
+                        <button onclick="AMS.TriggerDocument()" class="btn btn-success" >
+                            Choose File
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Documents List</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse">
+                    <i class="fa fa-minus"></i>
+                </button>
+
+            </div>
+        </div>
+        <div id="DocumentsContainer" class="box-body table-responsive ams-overFlow-hidden">
+        </div>
+    </div>
+</section>
+<form id="DocumentForm" style="display:none;">
+    <input type="file" class="form-control" id="txtDocumentName" name="txtDocumentName" placeholder="Title">
+</form>
+<script>
+    $(document).ready(function () {
+        AMS.GetDocumentsList();
+    });
+</script>

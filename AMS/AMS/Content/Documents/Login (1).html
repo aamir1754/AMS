@@ -1,0 +1,87 @@
+
+
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>SketchFunnels | Login</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script src="/Scripts/jquery.toaster.js"></script> 
+     <script src="/Scripts/jquery.blockUI.js"></script>
+     <script src="/Scripts/SketchFunnel.js"></script>
+     <link href="/Content/SketchFunnelStyleSheet.css" rel="stylesheet" />
+</head>
+
+<div class="no-padding ContentHeight">
+    <div class="container">
+        <div class="col-md-offset-8 col-md-4">
+            <div class="panel panel-primary panel-transparent NoMargin pnl-body-from-top">
+                <div class="panel-heading" style="background: #42166f !important">
+                    <img src="/Content/Images/complete-logo.png" style="height:40px; margin-left: 10px;" />
+                </div>
+                <div class="panel-body">
+
+<form action="/Account/UserLogin" method="post"><input name="__RequestVerificationToken" type="hidden" value="_o86bpVrf9XJf-JqH_dywg9nMv11par6C-s5M2v1cyJLmxyLqTOhIWVC2MBjpfNuMP7YgeS2VMVrPqdSBL6RoccIU5ux_1GjzGjeSaA6uzA1" />                        <fieldset class="form-group text-left">
+                            <div class="col-xs-12">
+                                <i class="fa fa-user prefix" style="color:white"></i>
+                                <label for="username" style="color:white">Email</label>
+                            </div>
+                            <div class="col-xs-12">
+                                <input type="text" class="form-control" id="EmailLogin" name="UserName" placeholder="Email" />
+                            </div>
+                        </fieldset>
+                        <fieldset class="form-group text-left">
+                            <div class="col-xs-12">
+                                <i class="fa fa-unlock-alt prefix" style="color:white"></i>
+                                <label for="username" style="color:white">Password</label>
+                            </div>
+                            <div class="col-xs-12">
+                                <input class="form-control" id="PasswordLogin" type="password" name="Password" placeholder="Password" />
+                            </div>
+                        </fieldset>
+                            <div class="col-xs-12 form-group">
+                                <button title="Click to login SketchFunnels" type="button" id="btnLogin2" class="btn btn-primary pull-left" onclick="SketchFunnel.Login()">Login</button>
+                                <a class="pull-right" style="font-weight: normal; color: white;cursor: pointer;" onclick="SketchFunnel.OpenForgetPasswordPopup()">forget password?</a>
+                            </div>
+</form>                </div>
+                <div class="panel-footer panel-heading text-center">
+                    Powered By:  <a href="https://www.sketchfunnels.io/" style="color:white;"><b>SketchFunnels &trade;</b></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="LoaderDiv"></div>
+
+
+<div id="ForgetPasswordModal" class="modal fade in" data-keyboard="false" data-backdrop="static" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header bg-theme">
+                <h4 class="modal-title">Forget Password</h4>
+            </div>
+            <div class="modal-body ModalBody">
+                <div id="MainDiv">
+                    <div class="form-group col-md-12">
+                        <div class="col-md-4">
+                            <span class="required">  Enter Your Email</span>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="txtforgetPassword" type="text" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer NoBorder">
+                <div class="col-md-12">
+                    <div class="form-group col-md-12">
+                        <input type="button" class="btn btn-primary" onclick="SketchFunnel.ForgetPassword($('#txtforgetPassword').val())" value="Request Password" />
+                        <button type="button" onclick="SketchFunnel.CloseModal('ForgetPasswordModal');" class="btn grey-mint btn-outline">Cancel </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
