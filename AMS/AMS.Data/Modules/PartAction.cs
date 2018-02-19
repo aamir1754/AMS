@@ -70,5 +70,15 @@ namespace AMS.Data.Modules
                 PartName = x.prt_title
             }).ToList();
         }
+
+        public List<PartsDTo> GetPartsWithOptions(int tagId)
+        {
+            return ctx.ams_parts.Where(x => x.prt_equ_key == tagId).AsEnumerable().Select(y => new PartsDTo
+            {
+                PartId = y.prt_key,
+                PartName = y.prt_title,
+                Options = DataAccess.Instance.OptionsActions.GetPartsList(y.prt_key)
+            }).ToList();
+        }
     }
 }

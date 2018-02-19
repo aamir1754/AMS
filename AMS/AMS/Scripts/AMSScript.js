@@ -232,7 +232,64 @@
             $("#txtDocumentName").trigger("click");
         },
         GetDocumentsList: function () {
-        }
+            $.get('/Home/_GetDocumentsList', function (data) {
+                $("#DocumentsContainer").html(data);
+            });
+        },
+        DeleteDocument: function (DocumentId) {
+            var options = AMS.SetSweetAlertOptions("Are you sure, you want to delete this document?");
+            swal(options, function (isConfirm) {
+                if (isConfirm) {
+                    $.post('/Home/DeleteDocument/', { DocumentId: DocumentId }, function (data) {
+                        if (data.success) {
+                            AMS.GetDocumentsList();
+                            $.toaster({ priority: 'success', message: 'Document deleted successfully' });
+                        }
+                        else {
+                            $.toaster({ priority: 'error', message: data.message });
+                        }
+                    });
+                }
+            });
+        },
+        DownloadDocument: function (DocumentId) {
+            window.location = "/Home/DownloadDocument?DocumentId=" + DocumentId ;
+        },
+        GetItemsPartial: function () {
+            $.get('/Home/_GetItemsPartial', function (data) {
+                $("#MainContent").html(data);
+            });
+        },
+        GetPartOptions: function (TagId) {
+            $.get('/Home/GetPartsWithOptions', { TagId, TagId }, function (data) {
+                var html = '';
+                $.each(data.data, function () {
+                    html += '<div class="col-md-9 form-group">';
+                    html += '<div class="col-md-2">';
+                    html += '<input type="checkbox" class="PartscheckBox" style="margin-right:10px;" >';
+                    html += '<label> '+ this.PartName +'</label>';
+                    html += '</div>';
+
+                    html += '<div class="col-md-4">';
+                    html += '<select class="form-control">';
+
+                    $.each(this.Options, function () {
+                        html += '<option value="' + this.OptionId + '" > '+ this.OptionTitle +' </option>';
+                    });
+
+                    html += '</select>';
+                    html += '</div>';
+
+                    html += '<div class="col-md-3">';
+                    html +='<input type="text" class="form-control" placeholder="Serial No" />';
+                    html += '</div>';
+
+                    html += '</div>';
+                });
+
+                $("#PartsSection").html(html);
+            });
+        },
     };
 }();
 

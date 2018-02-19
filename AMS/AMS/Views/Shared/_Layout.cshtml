@@ -113,7 +113,17 @@
                             <li><a onclick="AMS.GetPartsPartial()"><i class="fa fa-circle-o"></i> Add Parts</a></li>
                         </ul>
                     </li>
-                 
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-edit"></i> <span>Items</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a onclick="AMS.GetItemsPartial()"><i class="fa fa-circle-o"></i> Add Item</a></li>
+                        </ul>
+                    </li>
                     <li>
                         <a onclick="AMS.handleGetPartialView(this)" data-Partial="_SiteManagement" href="#">
                             <i class="fa fa-briefcase"></i> <span>Site Management</span>
