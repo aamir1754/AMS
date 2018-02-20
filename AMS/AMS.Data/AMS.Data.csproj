@@ -148,6 +148,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\DocumentAction.cs" />
     <Compile Include="Modules\OptionsAction.cs" />
     <Compile Include="Modules\PartAction.cs" />
     <Compile Include="Modules\TagAction.cs" />

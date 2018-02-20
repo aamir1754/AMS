@@ -112,5 +112,15 @@ namespace AMS.Data
                 return Ans;
             }
         }
+
+        public DocumentAction DocumentActions
+        {
+            get
+            {
+                DocumentAction Ans = new DocumentAction();
+                Ans.SetContainer(this);
+                return Ans;
+            }
+        }
     }
 }

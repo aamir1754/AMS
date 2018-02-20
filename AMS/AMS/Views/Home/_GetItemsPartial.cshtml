@@ -1,0 +1,96 @@
+﻿
+
+<section class="content-header">
+    <h1>
+        Items
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Add Items</a></li>
+    </ol>
+</section>
+<section class="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Select Tag</h3>
+        </div>
+        <div class="box-body form-horizontal">
+            <div class="col-md-6 ams-element-centered">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-3 control-label">Select Tag</label>
+                    <div class="col-sm-6">
+                        @Html.DropDownList("TagId", (IEnumerable<SelectListItem>)ViewBag.Tags, null, new { @class = "form-control", @id = "TagDropdownForItems" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box-footer">
+            <div class="col-md-6 ams-element-centered">
+                <br />
+            </div>
+        </div>
+    </div>
+    <div class="TagItemsContainer" style="display:none;">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title" id="TagTitle"></h3>
+                <input type="hidden" id="HiddenForTagId" />
+            </div>
+            <div class="box-body">
+                <div class="col-md-12 form-group">
+                    <div class="ams-element-centered">
+                        <label for="txtSerialNo" class="col-sm-2 control-label">Sr. No</label>
+                        <div class="col-sm-6">
+                            <input type="text" maxlength="100" class="form-control" id="txtSerialNo">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12  form-group">
+                    <div class="ams-element-centered">
+                        <label for="txtLocation" class="col-sm-2 control-label">Location</label>
+                        <div class="col-sm-6">
+                            <input type="text" maxlength="255" class="form-control" id="txtLocation">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <div class="ams-element-centered" id="PartsSection">
+                        @*<div class="form-group">
+                <label for="txtLocation" class="col-sm-4 control-label">Location</label>
+                <div class="col-sm-6">
+                    <input type="text" maxlength="255" class="form-control" id="txtLocation">
+                </div>
+            </div>*@
+                    </div>
+                </div>
+          
+                <div class="col-md-12 form-group">
+                    <div class="ams-element-centered">
+                        <label for="txtLocation" class="col-sm-2 control-label">Notes</label>
+                        <div class="col-sm-6">
+                            <textarea rows="5" class="form-control" id="txtNotes" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $('body').on('change', '#TagDropdownForItems', function () {
+
+        if ($(this).val() != 0) {
+            $("#TagsIdHidden").val($(this).val());
+            $(".TagItemsContainer").show();
+            AMS.GetTagParts($(this).val());
+            $("#TagTitle").text($("#TagDropdownForItems option:selected").text());
+            $("#HiddenForTagId").val($(this).val());
+            AMS.GetPartOptions($(this).val());
+        }
+        else {
+            $(".TagItemsContainer").hide();
+        }
+    })
+
+</script>
+
