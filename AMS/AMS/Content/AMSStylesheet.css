@@ -80,13 +80,6 @@ span a .paginate_button.current {
     color: white
 }
 
-.no-padding {
-    background-image: url("../Content/ProfileImages/LoginImage.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 .panel-transparent {
     background: none;
 }

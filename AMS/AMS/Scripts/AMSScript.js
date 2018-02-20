@@ -126,7 +126,32 @@
                 $("#TagsContainer").html(data);
             });
         },
-
+        GetUserPartial: function () {
+            $.get('/Home/GetUserPartial', function (data) {
+                $("#MainContent").html(data);
+            });
+        },
+        GetAllUsers: function () {
+            $.get('/Home/_GetAllUsers', function (data) {
+                $("#UsersContainer").html(data);
+            });
+        },
+        DeleteTag: function (userId) {
+            var options = AMS.SetSweetAlertOptions("Are you sure, you want to delete this tag?");
+            swal(options, function (isConfirm) {
+                if (isConfirm) {
+                    $.post('/Home/DeleteUser/', { userId: userId }, function (data) {
+                        if (data.success) {
+                            AMS.GetAllUsers();
+                            $.toaster({ priority: 'success', message: 'Tag deleted successfully' });
+                        }
+                        else {
+                            $.toaster({ priority: 'error', message: data.message });
+                        }
+                    });
+                }
+            });
+        },
         GetPartsPartial: function () {
             $.get('/Home/GetPartsPartial', function (data) {
                 $("#MainContent").html(data);

@@ -1,5 +1,6 @@
 ﻿using AMS.Data.Actions;
 using AMS.Data.Model;
+using AMS.DataTransferObjects.Modules;
 using EntityFramework.Extensions;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,14 @@ namespace AMS.Data.Modules
         public override IQueryable<ams_users> GetAll()
         {
             return ctx.ams_users;
+        }
+        public List<UserDto> GetUserList()
+        {
+            return ctx.ams_users.Select(x => new UserDto
+            {
+                ID = x.user_key,
+                FullName = x.first_name + " " + x.last_name,
+            }).ToList();
         }
     }
 }

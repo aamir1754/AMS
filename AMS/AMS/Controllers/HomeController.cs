@@ -86,6 +86,31 @@ namespace AMS.Controllers
             return PartialView("_Parts");
         }
 
+        public PartialViewResult GetUserPartial()
+        {
+           
+            return PartialView("_User");
+        }
+        public PartialViewResult _GetAllUsers()
+        {
+
+            return PartialView(DataAccess.Instance.UsersActions.GetUserList());
+        }
+        [HttpPost]
+        public ActionResult DeleteUser(int UserId)
+        {
+            try
+            {
+                DataAccess.Instance.UsersActions.Delete(UserId);
+                return Json(new { success = true }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ee)
+            {
+                return Json(new { success = false, message = "Can not delete User" }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
 
         [HttpPost]
         public ActionResult AddNewPart(string Title, int TagId)
